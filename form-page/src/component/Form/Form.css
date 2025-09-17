@@ -1,0 +1,110 @@
+.registration-container {
+  max-width: 420px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  padding: 1rem 2rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  padding: 1rem 1rem 1rem 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.address-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap; 
+}
+
+.address-col {
+  flex: 1 1 45%; 
+  display: flex;
+  flex-direction: column;
+  min-width: 150px; 
+}
+
+.form-control {
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline-offset: 2px;
+}
+
+.gender-group {
+  margin-top: 1rem;
+  border: none;
+  padding: 0;
+}
+
+.gender-group legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.gender-group label {
+  font-weight: normal;
+  margin-right: 1rem;
+}
+
+.submit-btn {
+  margin-top: 2rem;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+.address-row {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.address-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.address-col input,
+.address-col select {
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline-offset: 2px;
+}
+
+.error {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
