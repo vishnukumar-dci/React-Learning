@@ -30,7 +30,6 @@ export const getUser = async() => {
 
 export const getProduct = async() => {
     const res = await axios.get("/product/list")
-    console.log(res.data.list)
     return res.data
 }
 

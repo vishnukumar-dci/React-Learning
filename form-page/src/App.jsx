@@ -1,18 +1,16 @@
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom"
 import { Form } from "./component/Form/Form"
-import { Product} from "./component/Product"
 import { UserList } from "./component/List/UserList";
-import { ProductList } from "./component/List/ProductList";
+import { Product } from "./component/Product/Product";
 
 function  App(){
   return (
     <>
     <Router>
       <Routes>
-        <Route path="/" element={<Form/>}></Route>
-        <Route path="/product" element={<Product/>}/>
+        <Route path="/" element={<Form/>}/>
         <Route path="/list" element={<UserList/>}/>
-        <Route path="/items" element={<ProductList/>}/>
+        <Route path="/product" element={<Product/>}/>
       </Routes>
     </Router>
     </>

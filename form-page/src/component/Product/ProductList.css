@@ -55,3 +55,48 @@
 .add-to-cart:hover {
   background-color: #0847a3;
 }
+
+.container form{
+  width: 100%;
+  text-align: center;
+  padding:10px;
+  margin:10px;
+}
+
+.search-box{
+  width: 100%;
+  display: flex;
+  margin:0px 30px;
+  justify-content: space-around;
+}
+
+.search-box input{
+  width: 700px;
+  padding: 10px;
+  margin:0px 5px;
+  border: 1px solid #e3d8d8;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.search-box button{
+  width: 100px;
+  background-color: rgb(36, 36, 241);
+  color: white;
+  padding: 2px;
+  margin:0px 5px;
+  border-radius: 6px;
+  border:1px solid rgb(36, 36, 241)
+}
+
+.search-box button:hover{
+  background-color: rgb(36, 36, 241);
+}
+
+.search-box select{
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+
+
