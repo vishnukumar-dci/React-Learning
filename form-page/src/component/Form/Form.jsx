@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Form.css';
 import { registerUser } from '../../api/apiHelper';
+import { useLocation } from "react-router-dom";
 
 export const Form = () => {
 
@@ -17,10 +18,15 @@ export const Form = () => {
       state: '',            
       city: ''
     },
-    phoneno: ''
+    phoneno: '',
+    dob:''
   });
 
   const [formError, setFormError] = useState({})
+
+  useEffect(() => {
+    console.log(location)
+  },[location.pathname])
 
 
   const handleChange = (field, subfield, value) => {
@@ -133,47 +139,61 @@ export const Form = () => {
   return (
     <div className="registration-container">
       <h2>Registration Form</h2>
-      <form onSubmit={handleSubmit} className='form' noValidate>
+      <form onSubmit={handleSubmit} className="form" noValidate>
         <label htmlFor="fullname">Full Name</label>
         <input
           type="text"
-          id='fullname'
+          id="fullname"
           className="form-control"
           value={formData.fullname}
-          onChange={(e) => handleChange('fullname', null, e.target.value)}
+          onChange={(e) => handleChange("fullname", null, e.target.value)}
         />
-        {formError.fullname && <div className="error">{formError.fullname}</div>}
+        {formError.fullname && (
+          <div className="error">{formError.fullname}</div>
+        )}
 
         <label htmlFor="email">Email</label>
         <input
           type="email"
-          id='email'
+          id="email"
           className="form-control"
           value={formData?.email}
-          onChange={(e) => handleChange('email', null, e.target.value)}
+          onChange={(e) => handleChange("email", null, e.target.value)}
         />
         {formError.email && <div className="error">{formError.email}</div>}
 
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          id='password'
+          id="password"
           className="form-control"
           value={formData?.password}
-          onChange={(e) => handleChange('password', null, e.target.value)}
+          onChange={(e) => handleChange("password", null, e.target.value)}
         />
-        {formError.password && <div className="error">{formError.password}</div>}
+        {formError.password && (
+          <div className="error">{formError.password}</div>
+        )}
 
         <label htmlFor="phno">Phone no</label>
         <input
           type="text"
-          id='phno'
+          id="phno"
           className="form-control"
           value={formData?.phoneno}
-          onChange={(e) => handleChange('phoneno', null, e.target.value)}
-          placeholder='eg +12345678'
+          onChange={(e) => handleChange("phoneno", null, e.target.value)}
+          placeholder="eg +12345678"
         />
         {formError.phoneno && <div className="error">{formError.phoneno}</div>}
+
+        <label htmlFor="date">Phone no</label>
+        <input
+          type="date"
+          id="date"
+          className="form-control"
+          value={formData?.dob}
+          onChange={(e) => handleChange("dob", null, e.target.value)}
+        />
+        {formError.date && <div className="error">{formError.date}</div>}
 
         <fieldset className="gender-group">
           <legend>Gender</legend>
@@ -182,8 +202,8 @@ export const Form = () => {
               type="radio"
               name="gender"
               value="Male"
-              checked={formData.gender === 'Male'}
-              onChange={(e) => handleChange('gender', null, e.target.value)}
+              checked={formData.gender === "Male"}
+              onChange={(e) => handleChange("gender", null, e.target.value)}
             />
             Male
           </label>
@@ -192,8 +212,8 @@ export const Form = () => {
               type="radio"
               name="gender"
               value="Female"
-              checked={formData.gender === 'Female'}
-              onChange={(e) => handleChange('gender', null, e.target.value)}
+              checked={formData.gender === "Female"}
+              onChange={(e) => handleChange("gender", null, e.target.value)}
             />
             Female
           </label>
@@ -202,23 +222,25 @@ export const Form = () => {
         <fieldset>
           <legend>Address</legend>
 
-          <label htmlFor="line1">Address Line 1  </label>
+          <label htmlFor="line1">Address Line 1 </label>
           <input
             type="text"
             id="line1"
             className="form-control"
             value={formData.address.line1}
-            onChange={(e) => handleChange('address', 'line1', e.target.value)}
+            onChange={(e) => handleChange("address", "line1", e.target.value)}
           />
-          {formError.address?.line1 && <div className="error">{formError.address.line1}</div>}
+          {formError.address?.line1 && (
+            <div className="error">{formError.address.line1}</div>
+          )}
           <br />
-          <label htmlFor="line2">Address Line 2  </label>
+          <label htmlFor="line2">Address Line 2 </label>
           <input
             type="text"
             id="line2"
             className="form-control"
             value={formData.address.line2}
-            onChange={(e) => handleChange('address', 'line2', e.target.value)}
+            onChange={(e) => handleChange("address", "line2", e.target.value)}
           />
 
           <div className="address-row">
@@ -229,9 +251,13 @@ export const Form = () => {
                 id="city"
                 className="form-control"
                 value={formData.address.city}
-                onChange={(e) => handleChange('address', 'city', e.target.value)}
+                onChange={(e) =>
+                  handleChange("address", "city", e.target.value)
+                }
               />
-              {formError.address?.city && <div className="error">{formError.address.city}</div>}
+              {formError.address?.city && (
+                <div className="error">{formError.address.city}</div>
+              )}
             </div>
 
             <div className="address-col">
@@ -241,9 +267,13 @@ export const Form = () => {
                 id="state"
                 className="form-control"
                 value={formData.address.state}
-                onChange={(e) => handleChange('address', 'state', e.target.value)}
+                onChange={(e) =>
+                  handleChange("address", "state", e.target.value)
+                }
               />
-              {formError.address?.state && <div className="error">{formError.address.state}</div>}
+              {formError.address?.state && (
+                <div className="error">{formError.address.state}</div>
+              )}
             </div>
           </div>
 
@@ -255,9 +285,13 @@ export const Form = () => {
                 id="postalCode"
                 className="form-control"
                 value={formData.address.postalCode}
-                onChange={(e) => handleChange('address', 'postalCode', e.target.value)}
+                onChange={(e) =>
+                  handleChange("address", "postalCode", e.target.value)
+                }
               />
-              {formError.address?.postalCode && <div className="error">{formError.address.postalCode}</div>}
+              {formError.address?.postalCode && (
+                <div className="error">{formError.address.postalCode}</div>
+              )}
             </div>
 
             <div className="address-col">
@@ -267,9 +301,13 @@ export const Form = () => {
                 id="country"
                 className="form-control"
                 value={formData.address.country}
-                onChange={(e) => handleChange('address', 'country', e.target.value)}
+                onChange={(e) =>
+                  handleChange("address", "country", e.target.value)
+                }
               />
-              {formError.address?.country && <div className="error">{formError.address.country}</div>}
+              {formError.address?.country && (
+                <div className="error">{formError.address.country}</div>
+              )}
             </div>
           </div>
         </fieldset>
