@@ -103,8 +103,8 @@ export const Form = () => {
 
     if (Object.keys(error).length < 1) {
       try {
-        const response = await registerUser(formData)
-        console.log(response.message)
+        // const response = await registerUser(formData)
+        // console.log(response.message)
         alert('From submitted successfully')
         console.log(formData)
         setFormData({
